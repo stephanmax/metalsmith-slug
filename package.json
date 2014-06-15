@@ -1,6 +1,6 @@
 {
   "name": "metalsmith-slug",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "slugify a property in metalsmith",
   "main": "lib/index.js",
   "scripts": {

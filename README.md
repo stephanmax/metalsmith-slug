@@ -55,6 +55,15 @@ metalsmith.use(slug({
 }));
 ```
 
+**renameFiles** _boolean_: When set to `true`, will rename the files passed to
+metalsmith-slug to the file's new slug property.
+
+```js
+metalsmith.use(slug({
+  renameFiles: true
+}));
+```
+
 **slug options**: You can additionally use any of the options available to [node-slug](https://github.com/dodo/node-slug#options)
 
 ```js
@@ -63,3 +72,4 @@ metalsmith.use(slug({
   symbols: false
 }));
 ```
+
