@@ -38,7 +38,7 @@ metalsmith.use(slug());
 
 ## Options
 
-*patterns* _[array]_: Glob patters of files to match. Uses
+**patterns** _[array]_: Glob patters of files to match. Uses
 [minimatch](https://github.com/isaacs/minimatch).
 
 ```js
@@ -47,7 +47,7 @@ metalsmith.use(slug({
 }));
 ```
 
-*property* _'string'_: Property to generate the slug from. Defaults to `title`.
+**property** _'string'_: Property to generate the slug from. Defaults to `title`.
 
 ```js
 metalsmith.use(slug({
@@ -55,7 +55,7 @@ metalsmith.use(slug({
 }));
 ```
 
-*slug options*: You can additionally use any of the options available to [node-slug](https://github.com/dodo/node-slug#options)
+**slug options**: You can additionally use any of the options available to [node-slug](https://github.com/dodo/node-slug#options)
 
 ```js
 metalsmith.use(slug({
