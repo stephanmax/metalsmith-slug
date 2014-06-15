@@ -43,11 +43,11 @@ metalsmith.use(slug());
 
 ```js
 metalsmith.use(slug({
-  patterns: ['*.md', *.rst]
+  patterns: ['*.md', '*.rst'] // Deafults to metalsmith.source() directory
 }));
 ```
 
-**property** _'string'_: Property to generate the slug from. Defaults to `title`.
+**property** _'string'_: Property to generate the slug from.
 
 ```js
 metalsmith.use(slug({
@@ -59,7 +59,7 @@ metalsmith.use(slug({
 
 ```js
 metalsmith.use(slug({
-  replacement: '_',
+  replacement: '_', // Defaults to node-slug defaults
   symbols: false
 }));
 ```
