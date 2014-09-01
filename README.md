@@ -10,9 +10,9 @@ Useful for generating links to pages based on, say, their title.
 
 ## Usage
 
-If you're not familiar with Metalsmith, check it out. It's a very versatile file
+If you're not familiar with Metalsmith, check it out. It's a versatile file
 processor that can be used for static site generation, project scaffolding and
-more.
+more. It can be interacted with via a CLI and JavaScript API.
 
 ### Metalsmith CLI
 
@@ -38,7 +38,7 @@ metalsmith.use(slug());
 
 ## Options
 
-**patterns** _[array]_: Glob patters of files to match. Uses
+**patterns** _[array]_: Glob patterns of files to match. Uses
 [minimatch](https://github.com/isaacs/minimatch).
 
 ```js
@@ -72,6 +72,10 @@ metalsmith.use(slug({
   symbols: false
 }));
 ```
+
+## Tests
+
+`npm run test` to run the tests.
 
 ## License
 
