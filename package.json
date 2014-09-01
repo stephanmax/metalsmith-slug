@@ -4,7 +4,7 @@
   "description": "slugify a property in metalsmith",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./test/index.js | tap-dot"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,10 @@
   "dependencies": {
     "minimatch": "^0.3.0",
     "slug": "^0.5.0"
+  },
+  "devDependencies": {
+    "metalsmith": "^0.10.0",
+    "tap": "^0.4.12",
+    "tap-dot": "^0.2.3"
   }
 }

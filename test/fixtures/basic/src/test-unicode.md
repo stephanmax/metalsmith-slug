@@ -1,0 +1,4 @@
+---
+testName: unicode
+title: ☢☠☤☣☭☯☮☏☔'☎ ☀★☂☃✈✉✊'
+---
