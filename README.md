@@ -12,7 +12,7 @@ Useful for generating links to pages based on, say, their title.
 
 If you're not familiar with Metalsmith, check it out. It's a versatile file
 processor that can be used for static site generation, project scaffolding and
-more. It can be interacted with via a CLI and JavaScript API.
+more. It can be interacted with via a CLI or JavaScript API.
 
 ### Metalsmith CLI
 
@@ -75,7 +75,7 @@ metalsmith.use(slug({
 
 ## Tests
 
-`npm run test` to run the tests.
+`npm test` to run the tests.
 
 ## License
 
