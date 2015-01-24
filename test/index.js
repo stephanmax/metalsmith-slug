@@ -3,15 +3,17 @@ var Metalsmith     = require('metalsmith');
 var metalsmithSlug = require('..');
 var slug           = require('slug');
 
+var testProperty = 'title';
+
 test('it should specified property of metalsmith files to a slug', function (t) {
-  t.plan(3);
+  t.plan(4);
 
   var metalsmith = Metalsmith('test/fixtures/basic');
 
   metalsmith
     .use(metalsmithSlug({
       patterns: ['*.md'],
-      property: 'title'
+      property: testProperty
     }))
     .build(function (err, files) {
       if (err) {
@@ -19,8 +21,13 @@ test('it should specified property of metalsmith files to a slug', function (t) 
       }
 
       Object.keys(files).forEach(function (file) {
+        console.log(file);
         var currFile = files[file];
-        t.equal(currFile.slug, slug(currFile.title), currFile.testName);
+        if (currFile[testProperty]) {
+          t.equal(currFile.slug, slug(currFile.title), currFile.testName);
+        } else {
+          t.equal(currFile.slug, undefined, currFile.testName);
+        }
       });
 
       t.end();
