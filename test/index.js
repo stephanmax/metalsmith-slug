@@ -21,7 +21,6 @@ test('it should specified property of metalsmith files to a slug', function (t) 
       }
 
       Object.keys(files).forEach(function (file) {
-        console.log(file);
         var currFile = files[file];
         if (currFile[testProperty]) {
           t.equal(currFile.slug, slug(currFile.title), currFile.testName);
