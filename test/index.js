@@ -56,6 +56,20 @@ test('it should match the given patterns', function (t) {
     .build(testDone(t));
 });
 
+test('it should rename the files', function (t) {
+  t.plan(4);
+
+  Metalsmith('test/fixtures/basic')
+    .use(metalsmithSlug({ renameFiles: true }))
+    .use(testFiles(t, {
+      'test-noproperty.md': undefined,
+      'A-simple-string-of-characters.md': 'A-simple-string-of-characters',
+      'ccoeOEsumrdftmooadeltainfinityloveandorlessgreater.md': 'ccoeOEsumrdftmooadeltainfinityloveandorlessgreater',
+      'radioactiveskull-and-bonescaduceusbiohazardhammer-and-sickleyin-yangpeacetelephoneumbrella-with-rain-dropstelephone-sun-with-raysstarumbrellasnowmanairplaneenveloperaised-fist.md': 'radioactiveskull-and-bonescaduceusbiohazardhammer-and-sickleyin-yangpeacetelephoneumbrella-with-rain-dropstelephone-sun-with-raysstarumbrellasnowmanairplaneenveloperaised-fist',
+    }))
+    .build(testDone(t));
+});
+
 test('it should work with "lowercase" option (backward compatibility)', function (t) {
   t.plan(4);
 
