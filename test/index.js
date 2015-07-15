@@ -4,8 +4,6 @@ var metalsmithSlug = require('..');
 var slug           = require('slug');
 
 test('it should work with default options', function (t) {
-  t.plan(4);
-
   Metalsmith('test/fixtures/basic')
     .use(metalsmithSlug())
     .use(testFiles(t, {
@@ -18,8 +16,6 @@ test('it should work with default options', function (t) {
 });
 
 test('it should sluggify the specified property', function (t) {
-  t.plan(4);
-
   Metalsmith('test/fixtures/basic')
     .use(function (files, ms, done) {
       for (var file in files) {
@@ -41,8 +37,6 @@ test('it should sluggify the specified property', function (t) {
 });
 
 test('it should match the given patterns', function (t) {
-  t.plan(4);
-
   Metalsmith('test/fixtures/basic')
     .use(metalsmithSlug({
       patterns: ['test-s*.md']
@@ -57,8 +51,6 @@ test('it should match the given patterns', function (t) {
 });
 
 test('it should rename the files', function (t) {
-  t.plan(4);
-
   Metalsmith('test/fixtures/basic')
     .use(metalsmithSlug({ renameFiles: true }))
     .use(testFiles(t, {
@@ -71,8 +63,6 @@ test('it should rename the files', function (t) {
 });
 
 test('it should work with "lowercase" option (backward compatibility)', function (t) {
-  t.plan(4);
-
   Metalsmith('test/fixtures/basic')
     .use(metalsmithSlug({ lowercase: true }))
     .use(testFiles(t, {
@@ -85,8 +75,6 @@ test('it should work with "lowercase" option (backward compatibility)', function
 });
 
 test('it should take slug options', function (t) {
-  t.plan(4);
-
   Metalsmith('test/fixtures/basic')
     .use(metalsmithSlug({ lower: true }))
     .use(testFiles(t, {
@@ -99,8 +87,6 @@ test('it should take slug options', function (t) {
 });
 
 test('it should change the slug mode', function (t) {
-  t.plan(4);
-
   Metalsmith('test/fixtures/basic')
     .use(metalsmithSlug({ mode: 'rfc3986' }))
     .use(testFiles(t, {
