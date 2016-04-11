@@ -1,18 +1,18 @@
 # metalsmith slug
 
-Add a slug property to the metadata for targeted files in your
+Add a `slug` property to the metadata for targeted files in your
 [Metalsmith](http://www.metalsmith.io/), based on a particular property.
-Useful for generating links to pages based on, say, their title.
+Useful for generating links to pages based on, say, their `title`.
 
 ## Installation
 
-    npm install metalsmith-slug
+    npm install metalsmith-slug --save
 
 ## Usage
 
-If you're not familiar with Metalsmith, check it out. It's a versatile file
-processor that can be used for static site generation, project scaffolding and
-more. It can be interacted with via a CLI or JavaScript API.
+If you're not familiar with Metalsmith, [check it out](http://metalsmith.io). It's a versatile file processor that can be used for static site generation,
+project scaffolding and more. It can be interacted with via a CLI or
+JavaScript API.
 
 ### Metalsmith CLI
 
@@ -38,25 +38,25 @@ metalsmith.use(slug());
 
 ## Options
 
-**patterns** _[array]_: Glob patterns of files to match. Uses
-[minimatch](https://github.com/isaacs/minimatch).
+**patterns** `Array`: Glob patterns of files to match. Uses
+[minimatch](https://github.com/isaacs/minimatch). Default: `[]`.
 
 ```js
 metalsmith.use(slug({
-  patterns: ['*.md', '*.rst'] // Deafults to metalsmith.source() directory
+  patterns: ['*.md', '*.rst'] // Deafults to all files
 }));
 ```
 
-**property** _'string'_: Property to generate the slug from.
+**property** `String`: Property to generate the slug from. Default: `title`.
 
 ```js
 metalsmith.use(slug({
-  property: 'name' // Defaults to 'title'
+  property: 'name'
 }));
 ```
 
-**renameFiles** _boolean_: When set to `true`, will rename the files passed to
-metalsmith-slug to the file's new slug property.
+**renameFiles** `Boolean`: When set to `true`, will rename the files passed to
+metalsmith-slug to the file's new slug property. Default: `false`.
 
 ```js
 metalsmith.use(slug({
@@ -64,12 +64,25 @@ metalsmith.use(slug({
 }));
 ```
 
-**slug options**: You can additionally use any of the options available to [node-slug](https://github.com/dodo/node-slug#options)
+**slug options**: You can additionally use any of the options available for [node-slug](https://github.com/dodo/node-slug#options).
 
 ```js
+// This are the defaults for node-slug 'pretty' mode
 metalsmith.use(slug({
-  replacement: '_', // Defaults to node-slug defaults
-  symbols: false
+  replacement: '-',
+  symbols: true,
+  remove: /[.]/g,
+  lower: false,
+  charmap: [object Object], // slug.defaults.charmap
+  multicharmap: [object Object], // slug.defaults.multicharmap
+}));
+```
+
+Alternatively you can change the default node-slug mode:
+
+```
+metalsmith.use(slug({
+  mode: 'rfc3986'
 }));
 ```
 
