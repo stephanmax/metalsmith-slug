@@ -98,6 +98,15 @@ test('it should change the slug mode', function (t) {
     .build(testDone(t));
 });
 
+test('it should not touch an existing slug property', function (t) {
+  Metalsmith('test/fixtures/basic')
+    .use(metalsmithSlug())
+    .use(testFiles(t, {
+      'test-manual.md': 'something-from-george'
+    }))
+    .build(testDone(t));
+});
+
 function testFiles(t, tests) {
   return function (files, ms, done) {
     Object.keys(files).forEach(function (file) {
