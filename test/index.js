@@ -98,9 +98,18 @@ test('it should change the slug mode', function (t) {
     .build(testDone(t));
 });
 
-test('it should not touch an existing slug property', function (t) {
+test('it should not replace an existing slug property', function (t) {
   Metalsmith('test/fixtures/basic')
     .use(metalsmithSlug())
+    .use(testFiles(t, {
+      'test-manual.md': 'Something-From-George'
+    }))
+    .build(testDone(t));
+});
+
+test('it should sluggify an existing slug property with options', function (t) {
+  Metalsmith('test/fixtures/basic')
+    .use(metalsmithSlug({ lower: true }))
     .use(testFiles(t, {
       'test-manual.md': 'something-from-george'
     }))
