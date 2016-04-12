@@ -64,7 +64,7 @@ metalsmith.use(slug({
 }));
 ```
 
-**slug options**: You can additionally use any of the options available for [node-slug](https://github.com/dodo/node-slug#options).
+**slug options**: You can additionally use any of the options available for [node-slug][node-slug-options].
 
 ```js
 // This are the defaults for node-slug 'pretty' mode
@@ -86,6 +86,25 @@ metalsmith.use(slug({
 }));
 ```
 
+## Manual override
+
+Also, it's possible to override the `slug` property in a single file.
+If you define a `slug` in the front matter, the plugin won't replace it with a new one.
+However, it will apply the same [slug options][node-slug-options], if any.
+
+```yaml
+---
+title: Something
+slug: Something-Else
+---
+contents...
+```
+
+```js
+metalsmith.use(slug());              // => {slug: 'Something-Else', ...}
+metalsmith.use(slug({lower: true})); // => {slug: 'something-else', ...}
+```
+
 ## Tests
 
 `npm test` to run the tests.
@@ -102,3 +121,5 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+
+[node-slug-options]: https://github.com/dodo/node-slug#options
