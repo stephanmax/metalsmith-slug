@@ -43,7 +43,7 @@ metalsmith.use(slug());
 
 ```js
 metalsmith.use(slug({
-  patterns: ['*.md', '*.rst'] // Deafults to all files
+  patterns: ['*.md', '*.rst'] // Defaults to all files
 }));
 ```
 
